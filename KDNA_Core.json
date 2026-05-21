@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "version": "1.0-rc",
+    "domain": "code_review",
+    "created": "2026-05-21",
+    "purpose": "Define the core judgment principles for code review: what to check first, what counts as a real issue, and what self-checks prevent rubber-stamp reviews.",
+    "load_condition": "Always load when reviewing code changes, pull requests, or patches."
+  },
+  "axioms": [
+    {
+      "id": "AX-001",
+      "one_sentence": "A code review must change something — either the code, the reviewer's understanding, or the author's understanding.",
+      "full_statement": "If a review finds nothing worth discussing, it has not been reviewed. The minimum output of a review is a shared understanding of what changed and why. Silent approval is not review.",
+      "why": "Without this axiom, reviewers default to surface checks (formatting, naming) rather than engaging with the change's intent and correctness."
+    },
+    {
+      "id": "AX-002",
+      "one_sentence": "Inspect behavior before implementation. A change that behaves correctly with ugly code is safer than a change that looks clean but behaves wrong.",
+      "full_statement": "The reviewer's first question is 'does this do what it claims?' not 'is the code elegant?'. Implementation quality is secondary to behavioral correctness. This ordering prevents reviewers from being distracted by style while missing logic errors.",
+      "why": "Reviews that prioritize style over correctness miss the highest-cost bugs: logic errors, missing edge cases, and incorrect assumptions."
+    },
+    {
+      "id": "AX-003",
+      "one_sentence": "Every review comment that requests a change must cite a specific failure mode.",
+      "full_statement": "If the reviewer cannot describe what bad outcome would occur without the change, the comment is a preference, not a review. 'This could be cleaner' is a preference. 'This will NPE if the input is null after the refactor' is a review.",
+      "why": "Without this discipline, reviews accumulate unbounded preference comments that exhaust the author without improving safety."
+    }
+  ],
+  "ontology": [
+    {
+      "id": "CON-001",
+      "one_sentence": "A review finding is a specific, verifiable defect or risk, not a stylistic preference.",
+      "essence": "A finding is falsifiable: two reviewers should independently agree that it represents a genuine risk of incorrect behavior, security vulnerability, or future maintenance trap.",
+      "boundary": "A finding is not 'I would have written this differently'. A finding must cite a concrete failure mode: what bad thing happens if this is not changed.",
+      "trigger_signal": "The reviewer is about to write a comment starting with 'consider', 'maybe', 'could', or 'I would'."
+    },
+    {
+      "id": "CON-002",
+      "one_sentence": "Review depth is how far the reviewer traced the change's effects, not how many comments they left.",
+      "essence": "A deep review traces the change through callers, data flow, error paths, and concurrent access. A shallow review checks the diff in isolation. Depth is measured by the reviewer's understanding of the change's blast radius.",
+      "boundary": "Review depth is not comment count. A single comment that identifies a cross-cutting race condition is deeper than ten formatting suggestions.",
+      "trigger_signal": "The reviewer has only looked at the diff lines and not traced their callers or dependents."
+    },
+    {
+      "id": "CON-003",
+      "one_sentence": "A review rubber-stamp is any approval without specific reasoning that can be cited later.",
+      "essence": "If the approval comment is 'LGTM' or 'looks good', the reviewer has not documented what they checked. A real approval names the specific behaviors, edge cases, or properties the reviewer verified.",
+      "boundary": "Approval is not agreement. Approval is a recorded statement that specific checks were performed and passed.",
+      "trigger_signal": "The reviewer comments 'LGTM', 'looks good', '+1', or approves without any comment."
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "FW-001",
+      "name": "Behavior-First Review",
+      "when_to_use": "Always — as the default review order.",
+      "steps": [
+        "Step 1: Verify intent — read the PR description. What problem does this change solve?",
+        "Step 2: Trace behavior — follow the change through its execution paths. Does it do what the description claims?",
+        "Step 3: Identify edge cases — what inputs, states, or timings could break this?",
+        "Step 4: Check error handling — are failure modes handled or explicitly documented as unhandled?",
+        "Step 5: Inspect tests — do tests verify behavior (what it does) or implementation (how it does it)?",
+        "Step 6: Review style last — only after behavior is verified, note structural issues that will cause future maintenance problems."
+      ]
+    },
+    {
+      "id": "FW-002",
+      "name": "Comment Classification",
+      "when_to_use": "Before posting any review comment.",
+      "steps": [
+        "Step 1: Can I name the specific failure mode this comment prevents?",
+        "Step 2: Would the failure mode be caught by existing tests or monitoring?",
+        "Step 3: If no to Step 1 and yes to Step 2, this is a preference — label it clearly as optional.",
+        "Step 4: If yes to Step 1 and no to Step 2, this is a finding — post it."
+      ]
+    }
+  ],
+  "core_structure": [
+    {
+      "from": "Superficial review: checking formatting, naming, and style",
+      "to": "Behavioral review: tracing execution, verifying intent, identifying real failure modes",
+      "via": "Apply Behavior-First Review framework; classify each comment as finding vs preference"
+    },
+    {
+      "from": "Rubber-stamp approval: LGTM without documented verification",
+      "to": "Accountable approval: specific behaviors checked, edge cases considered, reasoning recorded",
+      "via": "Name what was verified and what was not; document assumption boundaries"
+    }
+  ],
+  "stances": [
+    "A review is an act of engineering judgment, not a checklist exercise.",
+    "It is better to find one real bug than to leave ten style comments.",
+    "If you cannot articulate the failure mode a comment prevents, the comment is optional.",
+    "Approval without documented reasoning is not approval — it is witness."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "version": "1.0-rc",
+    "domain": "code_review",
+    "created": "2026-05-21",
+    "purpose": "Define the terminology, common misunderstandings, and self-checks that govern code review judgment.",
+    "load_condition": "Always load when reviewing code changes, pull requests, or patches."
+  },
+  "terminology": {
+    "standard_terms": [
+      {
+        "term": "finding",
+        "definition": "A specific, verifiable defect or risk in a code change, backed by a concrete failure mode. A finding is falsifiable: two reviewers should independently agree on its risk."
+      },
+      {
+        "term": "preference",
+        "definition": "A reviewer's personal style opinion that, if ignored, would not cause incorrect behavior, a security issue, or a future maintenance trap. Preferences may be noted but must be labeled as optional."
+      },
+      {
+        "term": "review depth",
+        "definition": "How far the reviewer traced the change's effects through callers, data flow, error paths, and concurrent access. Depth is measured by understanding, not comment count."
+      },
+      {
+        "term": "rubber-stamp",
+        "definition": "Any approval (LGTM, +1, approve button) without specific, documented reasoning about what was verified and why it is safe."
+      }
+    ],
+    "banned_terms": [
+      {
+        "term": "LGTM",
+        "why": "Encodes zero information about what was reviewed or verified. Normalizes approval without accountability.",
+        "replace_with": "\"Verified: [specific behaviors checked], [specific edge cases considered]. Approved.\""
+      },
+      {
+        "term": "consider",
+        "why": "The reviewer is unsure whether the comment matters. This delegates the decision to the author, who has less context. If the reviewer cannot commit to a finding, it is a preference.",
+        "replace_with": "State the finding directly: \"This will fail when...\" or label as optional: \"Optional preference: ...\""
+      },
+      {
+        "term": "looks good to me",
+        "why": "Same as LGTM — encodes no verification record. 'To me' also re-centers the reviewer's subjective impression rather than the code's objective safety.",
+        "replace_with": "\"Reviewed: behavior confirmed via [test/reasoning], edge cases [covered/missing]. Approved.\""
+      },
+      {
+        "term": "maybe we should",
+        "why": "Hedged language that avoids the reviewer's responsibility to make a clear recommendation. If the reviewer has a concern, state it directly. If not, do not raise it.",
+        "replace_with": "\"Recommend: [specific change] to prevent [specific failure mode].\""
+      }
+    ]
+  },
+  "misunderstandings": [
+    {
+      "id": "MS-001",
+      "wrong": "A review with no comments means the code is good.",
+      "correct": "A review with no findings must still document what was verified and why it was sufficient. Silent approval means the review process did not happen, regardless of code quality.",
+      "key_distinction": "Approval is a recorded act of verification, not the absence of objection.",
+      "why": "Without this distinction, reviewers treat silence as safety. When a bug is later found, there is no record of what the reviewer checked and what they assumed."
+    },
+    {
+      "id": "MS-002",
+      "wrong": "More review comments means a more thorough review.",
+      "correct": "Review quality is measured by the severity and specificity of findings, not comment count. One comment identifying a race condition is worth more than twenty formatting suggestions.",
+      "key_distinction": "Review depth ≠ comment volume. Depth is measured by how far the reviewer traced the change's effects.",
+      "why": "Teams that measure review quality by comment count incentivize superficial, high-volume feedback that exhausts authors without improving safety."
+    },
+    {
+      "id": "MS-003",
+      "wrong": "Code style is a review priority because clean code prevents bugs.",
+      "correct": "While structural quality matters for long-term maintenance, the reviewer's first priority is behavioral correctness. A logic error in clean code is far more dangerous than a style issue in correct code.",
+      "key_distinction": "The priority order is: correctness > error handling > test coverage > maintainability > style.",
+      "why": "Reviewers who lead with style feedback miss the highest-cost defects: logic errors, missing edge cases, and incorrect assumptions about input validity."
+    },
+    {
+      "id": "MS-004",
+      "wrong": "If the author is more experienced than the reviewer, the reviewer should defer to the author's judgment.",
+      "correct": "Experience asymmetry does not remove the reviewer's obligation to verify behavior. The reviewer may acknowledge the author's expertise but must still document what they checked and what they assumed. A junior reviewer can still identify missing tests, unclear intent, or undocumented assumptions.",
+      "key_distinction": "Review is verification, not judgment of the author's competence.",
+      "why": "Deference-based reviews create blind spots where experienced authors receive no meaningful verification. Even senior engineers introduce bugs that a junior reviewer could catch."
+    }
+  ],
+  "self_check": [
+    "Did I name at least one specific behavior I verified?",
+    "Did I identify any edge cases I considered, including ones I determined are safe?",
+    "Did each comment that requests a change cite a specific failure mode?",
+    "Did I label any preference comments as optional?",
+    "Did I trace this change through its callers or dependents?",
+    "Can someone reading this review six months later understand what was checked and why it passed?"
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "input": "PR: refactored authentication, no tests for edge cases",
+    "without_kdna": "LGTM. Clean extraction. Ship it.",
+    "with_kdna": "**Findings:** Missing edge case tests for invalid token, expired session. Verified: extraction is clean, callers updated correctly. **Preference:** Consider renaming method."
+  },
+  {
+    "input": "PR: added new feature with tests covering happy path only",
+    "without_kdna": "Looks good. Nice work on the tests. Merge when ready.",
+    "with_kdna": "**Verified:** Behavior matches description, happy path tests pass. **Not checked:** Edge cases — null input, empty state, timeout. **Recommendation:** Add edge case tests before merge. Findings cite specific failure modes."
+  }
+]

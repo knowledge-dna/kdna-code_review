@@ -1,0 +1,27 @@
+{
+  "kdna_spec": "1.0-rc",
+  "name": "code_review",
+  "version": "0.1.0",
+  "language": "en",
+  "created": "2026-05-21",
+  "updated": "2026-05-21",
+  "description": "Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.",
+  "keywords": ["code review", "pull request", "software engineering", "review quality"],
+  "access": "open",
+  "author": {
+    "name": "KDNA Team",
+    "id": "kdna-team"
+  },
+  "license": {
+    "type": "CC-BY-4.0",
+    "commercial": false,
+    "allow_agent_use": true,
+    "allow_redistribution": true,
+    "allow_training": true
+  },
+  "status": "reference",
+  "domain_field": ["software-engineering"],
+  "judgment_patterns": ["quality-assessment"],
+  "file_count": 2,
+  "files": ["KDNA_Core.json", "KDNA_Patterns.json"]
+}
