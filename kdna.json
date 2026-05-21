@@ -1,7 +1,7 @@
 {
   "kdna_spec": "1.0",
   "name": "@aikdna/code_review",
-  "version": "0.7.1",
+  "version": "0.7.5",
   "language": "en",
   "created": "2026-05-21",
   "updated": "2026-05-21",
@@ -38,5 +38,6 @@
     "KDNA_Core.json",
     "KDNA_Patterns.json"
   ],
-  "signature": "ed25519:8d5e0db5da8b52f13b752805a41b4e7221f26b754da758b7fdf8d6f89dabaee45dde27cd2366467304f1b1d466ec112c486f42f7fdf023297a8207f994c8a006"
+  "judgment_version": "2026.05",
+  "signature": "ed25519:615ba5f3dfc2d0c2bf8006a8a40568af60d0e2d8724b6487c60230d96fc91e70f2fea613b1636f6acf1f9c719d3c849a0f63a0feb54c7134269ef3df1bb0490f"
 }

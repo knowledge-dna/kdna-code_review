@@ -11,19 +11,67 @@
       "id": "AX-001",
       "one_sentence": "A code review must change something — either the code, the reviewer's understanding, or the author's understanding.",
       "full_statement": "If a review finds nothing worth discussing, it has not been reviewed. The minimum output of a review is a shared understanding of what changed and why. Silent approval is not review.",
-      "why": "Without this axiom, reviewers default to surface checks (formatting, naming) rather than engaging with the change's intent and correctness."
+      "why": "Without this axiom, reviewers default to surface checks (formatting, naming) rather than engaging with the change's intent and correctness.",
+      "applies_when": [
+        "Reviewing a complex database migration script where the reviewer confirms the rollback strategy works but finds no code changes needed.",
+        "A novice developer submits a simple bug fix and the reviewer explains the architectural context, changing the author's understanding.",
+        "A security patch is reviewed and the reviewer identifies a missing access control check, changing the code."
+      ],
+      "does_not_apply_when": [
+        "Automated CI pipelines that auto-merge trivial documentation updates like typo fixes in a README without human intervention.",
+        "Emergency hotfixes deployed directly to production with a post-deployment audit rather than pre-merge review.",
+        "Large-scale automated refactoring runs by tools like Prettier that guarantee style compliance without logical changes."
+      ],
+      "failure_risk": "Forcing manual reviews on trivial auto-formatted changes or emergency hotfixes produces unnecessary workflow bottlenecks and context-switching delays without improving system safety.",
+      "confidence": "high",
+      "evidence_type": [
+        "practice_pattern",
+        "industry_consensus"
+      ]
     },
     {
       "id": "AX-002",
       "one_sentence": "Inspect behavior before implementation. A change that behaves correctly with ugly code is safer than a change that looks clean but behaves wrong.",
       "full_statement": "The reviewer's first question is 'does this do what it claims?' not 'is the code elegant?'. Implementation quality is secondary to behavioral correctness. This ordering prevents reviewers from being distracted by style while missing logic errors.",
-      "why": "Reviews that prioritize style over correctness miss the highest-cost bugs: logic errors, missing edge cases, and incorrect assumptions."
+      "why": "Reviews that prioritize style over correctness miss the highest-cost bugs: logic errors, missing edge cases, and incorrect assumptions.",
+      "applies_when": [
+        "Reviewing a payment processing module where the reviewer traces fund transfer logic before critiquing variable names.",
+        "Evaluating a machine learning model inference endpoint for numerical stability and edge-case handling before checking comment formatting.",
+        "Assessing a concurrency fix in a distributed cache for race conditions before asking for extracted helper functions."
+      ],
+      "does_not_apply_when": [
+        "Reviewing a purely cosmetic front-end template change where functionality is already validated by a strict component test suite.",
+        "Onboarding a new team member to strict style guidelines where behavioral correctness is already guaranteed by a comprehensive integration test suite.",
+        "Post-merge technical debt sweeps where the explicit goal is refactoring stable, well-tested code for maintainability."
+      ],
+      "failure_risk": "Applying this to well-tested code during routine maintenance produces reviews that ignore readability concerns, resulting in accumulating technical debt and degraded maintainability.",
+      "confidence": "high",
+      "evidence_type": [
+        "practice_pattern",
+        "research_finding"
+      ]
     },
     {
       "id": "AX-003",
       "one_sentence": "Every review comment that requests a change must cite a specific failure mode.",
       "full_statement": "If the reviewer cannot describe what bad outcome would occur without the change, the comment is a preference, not a review. 'This could be cleaner' is a preference. 'This will NPE if the input is null after the refactor' is a review.",
-      "why": "Without this discipline, reviews accumulate unbounded preference comments that exhaust the author without improving safety."
+      "why": "Without this discipline, reviews accumulate unbounded preference comments that exhaust the author without improving safety.",
+      "applies_when": [
+        "Flagging a missing null check in a user authentication flow that could cause a 500 error on malformed tokens.",
+        "Requesting a retry mechanism for a third-party API call that currently fails silently on network timeouts.",
+        "Asking for explicit transaction boundaries in a ledger update that could leave the database in an inconsistent state."
+      ],
+      "does_not_apply_when": [
+        "Enforcing team-wide naming conventions or architectural patterns that prevent future misunderstandings but do not trigger immediate runtime failures.",
+        "Requesting extraction of a deeply nested loop into a named function solely to improve code readability and reduce cognitive load.",
+        "Asking for additional log statements in a stable service to aid future debugging when no immediate crash is predicted."
+      ],
+      "failure_risk": "Rejecting all comments lacking explicit failure modes produces codebases that drift from team conventions and readability standards, increasing long-term cognitive load and onboarding friction.",
+      "confidence": "medium",
+      "evidence_type": [
+        "practice_pattern",
+        "case_observation"
+      ]
     }
   ],
   "ontology": [

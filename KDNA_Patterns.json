@@ -54,28 +54,92 @@
       "wrong": "A review with no comments means the code is good.",
       "correct": "A review with no findings must still document what was verified and why it was sufficient. Silent approval means the review process did not happen, regardless of code quality.",
       "key_distinction": "Approval is a recorded act of verification, not the absence of objection.",
-      "why": "Without this distinction, reviewers treat silence as safety. When a bug is later found, there is no record of what the reviewer checked and what they assumed."
+      "why": "Without this distinction, reviewers treat silence as safety. When a bug is later found, there is no record of what the reviewer checked and what they assumed.",
+      "applies_when": [
+        "merging pull requests that received zero inline comments",
+        "conducting quarterly review process audits for compliance",
+        "configuring automated approval gates in CI pipelines"
+      ],
+      "does_not_apply_when": [
+        "reviewing automated dependency update pull requests where changes are algorithmically generated",
+        "using a standardized checklist that explicitly logs verification steps before approval",
+        "evaluating trivial typo fixes in documentation files where risk is negligible"
+      ],
+      "failure_risk": "Teams will treat unreviewed changes as safe, leading to undetected regressions and a false sense of compliance during incident post-mortems.",
+      "confidence": "high",
+      "evidence_type": [
+        "practice_pattern",
+        "case_observation"
+      ]
     },
     {
       "id": "MS-002",
       "wrong": "More review comments means a more thorough review.",
       "correct": "Review quality is measured by the severity and specificity of findings, not comment count. One comment identifying a race condition is worth more than twenty formatting suggestions.",
       "key_distinction": "Review depth ≠ comment volume. Depth is measured by how far the reviewer traced the change's effects.",
-      "why": "Teams that measure review quality by comment count incentivize superficial, high-volume feedback that exhausts authors without improving safety."
+      "why": "Teams that measure review quality by comment count incentivize superficial, high-volume feedback that exhausts authors without improving safety.",
+      "applies_when": [
+        "calculating reviewer performance metrics for engineering promotions",
+        "designing structured feedback forms for code review platforms",
+        "triaging high-volume feedback before development sprints"
+      ],
+      "does_not_apply_when": [
+        "running automated linting or static analysis tools that generate bulk findings",
+        "conducting onboarding exercises where junior reviewers practice giving structured feedback",
+        "reviewing massive refactorings where hundreds of small clarifications are necessary before architectural decisions"
+      ],
+      "failure_risk": "Engineering managers will promote superficial reviewers based on activity metrics, causing critical architectural flaws to slip through while authors drown in nitpicks.",
+      "confidence": "high",
+      "evidence_type": [
+        "case_observation",
+        "industry_consensus"
+      ]
     },
     {
       "id": "MS-003",
       "wrong": "Code style is a review priority because clean code prevents bugs.",
       "correct": "While structural quality matters for long-term maintenance, the reviewer's first priority is behavioral correctness. A logic error in clean code is far more dangerous than a style issue in correct code.",
       "key_distinction": "The priority order is: correctness > error handling > test coverage > maintainability > style.",
-      "why": "Reviewers who lead with style feedback miss the highest-cost defects: logic errors, missing edge cases, and incorrect assumptions about input validity."
+      "why": "Reviewers who lead with style feedback miss the highest-cost defects: logic errors, missing edge cases, and incorrect assumptions about input validity.",
+      "applies_when": [
+        "training new engineers on how to prioritize code review feedback",
+        "triaging review comments to assign sprint tasks",
+        "establishing team review guidelines for high-velocity releases"
+      ],
+      "does_not_apply_when": [
+        "enforcing strict regulatory compliance that mandates specific formatting standards",
+        "reviewing non-executable files like markdown or configuration schemas",
+        "adopting a new style guide across a monorepo to prevent long-term maintenance debt"
+      ],
+      "failure_risk": "The team will ship logically broken code because reviewers waste cycle time arguing over indentation and naming conventions instead of verifying core functionality.",
+      "confidence": "high",
+      "evidence_type": [
+        "research_finding",
+        "practice_pattern"
+      ]
     },
     {
       "id": "MS-004",
       "wrong": "If the author is more experienced than the reviewer, the reviewer should defer to the author's judgment.",
       "correct": "Experience asymmetry does not remove the reviewer's obligation to verify behavior. The reviewer may acknowledge the author's expertise but must still document what they checked and what they assumed. A junior reviewer can still identify missing tests, unclear intent, or undocumented assumptions.",
       "key_distinction": "Review is verification, not judgment of the author's competence.",
-      "why": "Deference-based reviews create blind spots where experienced authors receive no meaningful verification. Even senior engineers introduce bugs that a junior reviewer could catch."
+      "why": "Deference-based reviews create blind spots where experienced authors receive no meaningful verification. Even senior engineers introduce bugs that a junior reviewer could catch.",
+      "applies_when": [
+        "assigning junior engineers to review senior architects' pull requests",
+        "implementing cross-level review rotations to break knowledge silos",
+        "auditing oversight coverage for critical system components"
+      ],
+      "does_not_apply_when": [
+        "when the reviewer lacks the foundational domain knowledge to understand the change",
+        "when the change is explicitly marked as experimental prototype work exempt from correctness review",
+        "when company policy requires senior-only signoff for security boundary modifications"
+      ],
+      "failure_risk": "Senior engineers will operate without oversight, allowing subtle bugs or undocumented assumptions to accumulate until they cause production outages.",
+      "confidence": "medium",
+      "evidence_type": [
+        "case_observation",
+        "working_hypothesis"
+      ]
     }
   ],
   "self_check": [
