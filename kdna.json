@@ -1,7 +1,7 @@
 {
   "kdna_spec": "1.0",
   "name": "@aikdna/code_review",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "language": "en",
   "created": "2026-05-21",
   "updated": "2026-05-21",
@@ -16,7 +16,8 @@
   "author": {
     "name": "KDNA Team",
     "id": "kdna-team",
-    "pubkey": "ed25519:43d22af8f0e189b6fd42bfaab710f52f4bc5f0ae3f5e04719a1a1d9ce9760fbe"
+    "pubkey": "ed25519:43d22af8f0e189b6fd42bfaab710f52f4bc5f0ae3f5e04719a1a1d9ce9760fbe",
+    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEABYTSKqskFWFgPEykI648/YlhENQJkIZ6bQ6HcznYzKc=\n-----END PUBLIC KEY-----\n"
   },
   "license": {
     "type": "CC-BY-4.0",
@@ -37,5 +38,5 @@
     "KDNA_Core.json",
     "KDNA_Patterns.json"
   ],
-  "signature": "ed25519:09a8041c33ac9e8f85525ddfc1e2696e75ca9d19c7e071ea42c9fdd01c607a3620f7f71f8e78124c29fccdebd3c0c03d382b50b79c2e82a0b39f6c6051e68d00"
+  "signature": "ed25519:8d5e0db5da8b52f13b752805a41b4e7221f26b754da758b7fdf8d6f89dabaee45dde27cd2366467304f1b1d466ec112c486f42f7fdf023297a8207f994c8a006"
 }
