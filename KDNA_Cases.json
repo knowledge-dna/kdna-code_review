@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "domain": "code_review",
+    "version": "1.0-rc",
+    "language": "en"
+  },
+  "cases": [
+    {
+      "id": "C-001",
+      "title": "The rubber-stamp PR",
+      "situation": "A 500-line PR was approved 30 seconds after opening with 'LGTM'",
+      "what_was_learned": "Approval speed inversely correlates with review quality for large PRs. A meaningful review of 500 lines requires at least several minutes.",
+      "applies_when": [
+        "large PR",
+        "fast approval",
+        "few or no comments"
+      ]
+    },
+    {
+      "id": "C-002",
+      "title": "The style obsessive",
+      "situation": "Review had 15 comments — all about semicolons, import order, and variable naming. Zero comments on the actual algorithm change.",
+      "what_was_learned": "Style-only feedback is a signal of review avoidance. The reviewer is engaging with the low-risk surface instead of the high-risk logic.",
+      "applies_when": [
+        "all comments are formatting",
+        "logic changes present but unremarked"
+      ]
+    }
+  ]
+}

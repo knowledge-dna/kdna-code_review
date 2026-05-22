@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "domain": "code_review",
+    "version": "1.0-rc",
+    "language": "en"
+  },
+  "stages": [
+    {
+      "id": "E-001",
+      "name": "rubber stamp → style obsessive → behavior reviewer",
+      "description": "Reviewers evolve from approving everything, to commenting only on safe surface issues, to actually assessing behavior and correctness",
+      "signals": [
+        "All LGTM no comment → all style comments → mixed behavior and style comments"
+      ]
+    }
+  ]
+}

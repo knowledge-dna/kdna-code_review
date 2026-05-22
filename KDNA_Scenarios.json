@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "domain": "code_review",
+    "version": "1.0-rc",
+    "language": "en"
+  },
+  "scenes": [
+    {
+      "id": "S-001",
+      "name": "rubber-stamp detection",
+      "trigger_signal": "PR approved within seconds of opening, or all files marked LGTM without comment",
+      "context": "Reviewer may be rubber-stamping without actually reading the code",
+      "applies_when": [
+        "PR has >200 lines changed",
+        "approval came in under 60 seconds"
+      ]
+    },
+    {
+      "id": "S-002",
+      "name": "style-only review trap",
+      "trigger_signal": "All review comments are about formatting, naming, or import order — none about behavior",
+      "context": "Reviewer is avoiding the actual logic and focusing on low-risk surface issues",
+      "applies_when": [
+        "PR contains logic changes",
+        "no comments reference behavior or correctness"
+      ]
+    }
+  ]
+}
