@@ -1,8 +1,10 @@
 {
   "meta": {
-    "domain": "code_review",
     "version": "1.0-rc",
-    "language": "en"
+    "domain": "code_review",
+    "created": "2026-05-18",
+    "purpose": "Cases demonstrating code review judgment patterns.",
+    "load_condition": "Load when examples of review outcomes are needed."
   },
   "cases": [
     {

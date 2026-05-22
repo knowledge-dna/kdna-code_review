@@ -1,15 +1,17 @@
 {
   "meta": {
-    "domain": "code_review",
     "version": "1.0-rc",
-    "language": "en"
+    "domain": "code_review",
+    "created": "2026-05-18",
+    "purpose": "Reasoning chains for code review judgment.",
+    "load_condition": "Load when rationale or principles are requested."
   },
   "reasoning_chains": [
     {
       "id": "RC-001",
       "one_sentence": "Behavior-first review starts from what the code does, not how it looks",
       "so_what": "If you review style before behavior, you anchor on surface features and lose capacity to assess correctness",
-      "chain": [
+      "logic": [
         "Read the PR description first — what behavior change is intended?",
         "Trace the behavioral path through the code",
         "Only after behavioral assessment, consider style"

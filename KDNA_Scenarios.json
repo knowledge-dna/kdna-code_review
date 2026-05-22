@@ -1,8 +1,10 @@
 {
   "meta": {
-    "domain": "code_review",
     "version": "1.0-rc",
-    "language": "en"
+    "domain": "code_review",
+    "created": "2026-05-18",
+    "purpose": "Scenario triggers for code review judgment orientation.",
+    "load_condition": "Load when reviewing code or pull requests."
   },
   "scenes": [
     {
