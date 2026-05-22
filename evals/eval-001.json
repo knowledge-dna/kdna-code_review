@@ -1,0 +1,14 @@
+{
+  "id": "eval-001",
+  "domain": "@aikdna/code_review",
+  "input": "PR review request: a developer submits a pull request adding a new payment processing endpoint. The reviewer leaves comments about variable naming, suggests extracting a helper function for readability, and approves with 'LGTM \u2014 code looks clean' without tracing the payment logic or checking error handling paths.",
+  "expected_classification": "SUPERFICIAL_REVIEW_RUBBER_STAMP",
+  "expected_axioms": [
+    "AX-001",
+    "AX-002",
+    "AX-003"
+  ],
+  "output_rubric": "Agent must: (1) identify that the review skipped behavior inspection (Step 2 of Behavior-First Review), (2) classify 'LGTM' as rubber-stamp approval with no documented verification, (3) note that style comments without failure-mode citations are preferences not findings. Failure if agent endorses the superficial review or fails to flag the missing behavior trace.",
+  "pass": null,
+  "evidence": ""
+}

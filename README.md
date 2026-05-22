@@ -1,17 +1,45 @@
-# KDNA Code Review
+> 🧬 [aikdna.com](https://aikdna.com) — Official website
 
-Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.
+# kdna-code_review
 
-## Core Insight
+[![KDNA Spec](https://img.shields.io/badge/KDNA-v1.0--rc-4c1)](https://github.com/knowledge-dna/KDNA)
 
-Every review comment that requests a change must cite a specific failure mode.
+**Code Review** — Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.
 
-## Key Judgment
+## Four Questions
 
-- A fix that removes a symptom while preserving the failure condition is not complete.
-- Passed tests do not mean eliminated risk.
-- Silent approval ("LGTM" without verification) is not review.
+### 1. What does this domain judge?
+
+Define the core judgment principles for code review: what to check first, what counts as a real issue, and what self-checks prevent rubber-stamp reviews.
+
+### 2. When does it load?
+
+Always load when reviewing code changes, pull requests, or patches.
+
+### 3. What is the core judgment?
+
+
+
+### 4. How do I use it?
+
+```bash
+kdna install github:knowledge-dna/kdna-code_review
+kdna validate .
+```
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| KDNA_Core.json | Axioms, ontology, frameworks, core causal structure, stances |
+| KDNA_Patterns.json | Terminology, banned terms, misunderstandings, self-checks |
+| KDNA_Scenarios.json | Scenario signals that should shift strategy |
+| KDNA_Cases.json | Concrete cases showing structure rather than scripts |
+| KDNA_Reasoning.json | Reasoning chains: conclusion → logic → so_what |
+| KDNA_Evolution.json | Capability stages, measurable indicators, growth paths |
+| kdna.json | Domain manifest |
+| evals/ | Evaluation cases (quality: untested) |
 
 ## License
 
-CC-BY-4.0
+CC BY 4.0
