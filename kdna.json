@@ -5,7 +5,7 @@
   "language": "en",
   "created": "2026-05-21",
   "updated": "2026-05-21",
-  "description": "Reference domain for code review judgment \u2014 behavior-first review, comment classification, and anti-rubber-stamp principles.",
+  "description": "Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.",
   "keywords": [
     "code review",
     "pull request",
@@ -41,5 +41,11 @@
   "judgment_version": "2026.05",
   "signature": "ed25519:615ba5f3dfc2d0c2bf8006a8a40568af60d0e2d8724b6487c60230d96fc91e70f2fea613b1636f6acf1f9c719d3c849a0f63a0feb54c7134269ef3df1bb0490f",
   "quality_badge": "untested",
-  "spec_version": "1.0-rc"
+  "spec_version": "1.0-rc",
+  "languages": [
+    "en",
+    "zh-CN"
+  ],
+  "default_language": "en",
+  "i18n_level": "L2"
 }
