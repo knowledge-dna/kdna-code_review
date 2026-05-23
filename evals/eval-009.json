@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_009",
+  "domain": "@aikdna/code_review",
+  "input": "Review this function that handles user authentication.",
+  "expected_classification": "security_behavior_check",
+  "expected_axioms": [
+    "behavior_first"
+  ],
+  "output_rubric": "Agent should classify this as security_behavior_check and apply axiom behavior_first."
+}

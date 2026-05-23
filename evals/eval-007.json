@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_007",
+  "domain": "@aikdna/code_review",
+  "input": "This variable name could be clearer.",
+  "expected_classification": "style_only",
+  "expected_axioms": [
+    "cite_failure_mode"
+  ],
+  "output_rubric": "Agent should classify this as style_only and apply axiom cite_failure_mode."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_013",
+  "domain": "@aikdna/code_review",
+  "input": "Clean code, nice work! Ship it.",
+  "expected_classification": "no_review_substance",
+  "expected_axioms": [
+    "anti_rubber_stamp"
+  ],
+  "output_rubric": "Agent should classify this as no_review_substance and apply axiom anti_rubber_stamp."
+}

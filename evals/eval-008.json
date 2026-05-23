@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_008",
+  "domain": "@aikdna/code_review",
+  "input": "The refactoring looks good. Approved.",
+  "expected_classification": "no_failure_mode_cited",
+  "expected_axioms": [
+    "cite_failure_mode"
+  ],
+  "output_rubric": "Agent should classify this as no_failure_mode_cited and apply axiom cite_failure_mode."
+}

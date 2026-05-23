@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_012",
+  "domain": "@aikdna/code_review",
+  "input": "This change modifies the database schema. Review it.",
+  "expected_classification": "behavioral_impact",
+  "expected_axioms": [
+    "behavior_first"
+  ],
+  "output_rubric": "Agent should classify this as behavioral_impact and apply axiom behavior_first."
+}

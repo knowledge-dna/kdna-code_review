@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_005",
+  "domain": "@aikdna/code_review",
+  "input": "Review this PR. The code looks clean but changes a critical payment module.",
+  "expected_classification": "behavior_check_required",
+  "expected_axioms": [
+    "behavior_first"
+  ],
+  "output_rubric": "Agent should classify this as behavior_check_required and apply axiom behavior_first."
+}

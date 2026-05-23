@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_006",
+  "domain": "@aikdna/code_review",
+  "input": "LGTM! Approved.",
+  "expected_classification": "rubber_stamp",
+  "expected_axioms": [
+    "anti_rubber_stamp"
+  ],
+  "output_rubric": "Agent should classify this as rubber_stamp and apply axiom anti_rubber_stamp."
+}

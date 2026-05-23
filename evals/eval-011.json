@@ -1,0 +1,10 @@
+{
+  "id": "eval_code_review_011",
+  "domain": "@aikdna/code_review",
+  "input": "All tests pass. Looks fine to me.",
+  "expected_classification": "rubber_stamp_test_only",
+  "expected_axioms": [
+    "anti_rubber_stamp"
+  ],
+  "output_rubric": "Agent should classify this as rubber_stamp_test_only and apply axiom anti_rubber_stamp."
+}
