@@ -1,0 +1,12 @@
+{
+  "id": "eval-004",
+  "domain": "@aikdna/code_review",
+  "input": "PR review request: a developer submits a one-line bug fix that changes a null check. The reviewer approves with zero inline comments. The PR is merged without any documented verification of what was checked.",
+  "expected_classification": "SILENT_APPROVAL_NO_REVIEW",
+  "expected_axioms": [
+    "AX-001"
+  ],
+  "output_rubric": "Agent must: (1) classify zero-comment approval as silent approval — the review process did not happen regardless of code quality (MS-001), (2) state that a valid review of even a one-line fix must document what was verified (e.g., 'checked that the null guard covers the NPE path from issue #4721'), (3) NOT treat 'no comments' as evidence of 'no issues found.' Failure if agent treats silent approval as valid review.",
+  "pass": null,
+  "evidence": ""
+}

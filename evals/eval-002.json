@@ -1,0 +1,13 @@
+{
+  "id": "eval-002",
+  "domain": "@aikdna/code_review",
+  "input": "PR review request: a developer submits a pull request that renames variables, extracts a helper function, and adds inline comments. The reviewer leaves 15 comments about naming conventions, indentation, and comment style. None of the comments address whether the helper function preserves the original behavior or whether the extraction introduces new edge cases.",
+  "expected_classification": "STYLE_FIRST_REVIEW",
+  "expected_axioms": [
+    "AX-002",
+    "AX-003"
+  ],
+  "output_rubric": "Agent must: (1) identify that the review prioritized style over behavior (AX-002 violation), (2) note that none of the 15 comments cite a specific failure mode (AX-003 violation), (3) classify at least some comments as preferences rather than findings. Failure if agent endorses the review as 'thorough' based on comment count alone.",
+  "pass": null,
+  "evidence": ""
+}

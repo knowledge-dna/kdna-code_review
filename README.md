@@ -12,13 +12,16 @@
 
 Define the core judgment principles for code review: what to check first, what counts as a real issue, and what self-checks prevent rubber-stamp reviews.
 
-### 2. When does it load?
+### 2. Where does it apply?
 
-Always load when reviewing code changes, pull requests, or patches.
+Always load when reviewing code changes, pull requests, or patches. Applies to human-written code, automated refactoring proposals, and security patches.
 
-### 3. What is the core judgment?
+### 3. Where does it NOT apply?
 
-
+- Automated linting or formatting-only changes (no behavior to verify)
+- Emergency hotfixes with post-deployment audit
+- Code generation by AI without human intent (the domain judges review quality, not generation quality)
+- Non-code artifacts (documentation, configuration schemas without executable logic)
 
 ### 4. How do I use it?
 

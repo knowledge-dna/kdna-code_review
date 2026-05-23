@@ -1,0 +1,13 @@
+{
+  "id": "eval-003",
+  "domain": "@aikdna/code_review",
+  "input": "PR review request: a senior staff engineer submits a complex distributed systems change. A junior reviewer is assigned. The junior reviewer writes 'LGTM — this looks solid, I trust your judgment' and approves without naming any specific behavior they verified.",
+  "expected_classification": "DEFERENCE_REVIEW_NO_VERIFICATION",
+  "expected_axioms": [
+    "AX-001",
+    "AX-003"
+  ],
+  "output_rubric": "Agent must: (1) classify 'LGTM — I trust your judgment' as rubber-stamp approval with zero documented verification (AX-001), (2) flag that experience asymmetry does not remove obligation to verify (MS-004), (3) note that approval without naming checked behaviors is not review. Failure if agent excuses the deferral as 'reasonable given seniority'.",
+  "pass": null,
+  "evidence": ""
+}
