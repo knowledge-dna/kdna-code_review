@@ -1,0 +1,1 @@
+{"locale":"zh-CN","base":"en","name":"@aikdna/code_review","display_name":"代码审查判断","summary":"行为优先审查、评论分类和反橡皮图章原则——每条要求修改的评论必须引用具体的失败模式。","intended_use":["代码审查","PR 质量评估","审查意见分类"],"out_of_scope":["自动化测试","CI/CD 配置","性能测试"],"known_limitations":["当前为实验阶段"],"quality_badge":"untested","review_status":"community","license":"CC-BY-4.0"}
