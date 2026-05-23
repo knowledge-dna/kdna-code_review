@@ -1,0 +1,1 @@
+{"locale":"zh-CN","base":"en","spec_version":"1.0-rc","translations":{"self_check.0":"这条审查意见是否引用了具体的失败模式？","self_check.1":"我是否先检查了行为（代码做对了吗？）再检查风格？","self_check.2":"这次审查是否识别出至少一个真实的关注点？","self_check.3":"我是否避免了无具体建议的橡皮图章批准？","self_check.4":"每个请求修改的意见是否命名了具体的风险？"}}
