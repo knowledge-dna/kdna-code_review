@@ -2,7 +2,7 @@
 
 # kdna-code_review
 
-[![KDNA Spec](https://img.shields.io/badge/KDNA-v1.0--rc-4c1)](https://github.com/knowledge-dna/KDNA)
+[![KDNA Spec](https://img.shields.io/badge/KDNA-v1.0--rc-4c1)](https://github.com/aikdna/KDNA)
 
 **Code Review** — Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.
 
@@ -26,7 +26,7 @@ Always load when reviewing code changes, pull requests, or patches. Applies to h
 ### 4. How do I use it?
 
 ```bash
-kdna install github:knowledge-dna/kdna-code_review
+kdna install github:aikdna/kdna-code_review
 kdna validate .
 ```
 
