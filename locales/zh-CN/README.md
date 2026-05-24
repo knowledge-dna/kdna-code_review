@@ -18,4 +18,4 @@
 - CI/CD 配置
 - 性能测试
 
-详见英文原版：[README.md](https://github.com/knowledge-dna/kdna-code_review)
+详见英文原版：[README.md](https://github.com/aikdna/kdna-code_review)
