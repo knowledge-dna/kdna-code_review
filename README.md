@@ -1,47 +1,64 @@
 > 🧬 [aikdna.com](https://aikdna.com) — Official website
 
-# kdna-code_review
+# @aikdna/code_review
 
 [![KDNA Spec](https://img.shields.io/badge/KDNA-v1.0--rc-4c1)](https://github.com/aikdna/KDNA)
 
-**Code Review** — Reference domain for code review judgment — behavior-first review, comment classification, and anti-rubber-stamp principles.
+**Code review judgment** — behavior-first review, comment classification, and anti-rubber-stamp principles.
 
-## Four Questions
+## What this KDNA changes
 
-### 1. What does this domain judge?
+**Before loading this KDNA, an agent tends to:**
+- Approve changes that "look correct"
+- Leave vague or cosmetic review comments
+- Rubber-stamp pull requests that pass tests
 
-Define the core judgment principles for code review: what to check first, what counts as a real issue, and what self-checks prevent rubber-stamp reviews.
+**After loading this KDNA, an agent will judge:**
+- Does every review comment that requests a change cite a specific failure mode?
+- Does a fix remove the symptom while preserving the failure condition?
+- Do passed tests mean eliminated risk?
+- Is "LGTM without verification" ever acceptable?
 
-### 2. Where does it apply?
+## This KDNA is for
 
-Always load when reviewing code changes, pull requests, or patches. Applies to human-written code, automated refactoring proposals, and security patches.
+- Reviewing code changes, pull requests, or patches
+- Human-written code, automated refactoring proposals, and security patches
 
-### 3. Where does it NOT apply?
+## This KDNA is not for
 
 - Automated linting or formatting-only changes (no behavior to verify)
 - Emergency hotfixes with post-deployment audit
-- Code generation by AI without human intent (the domain judges review quality, not generation quality)
-- Non-code artifacts (documentation, configuration schemas without executable logic)
+- AI-generated code without human intent
+- Non-code artifacts (documentation, config schemas without executable logic)
 
-### 4. How do I use it?
+## Core judgment
+
+Every review comment that requests a change must cite a specific failure mode. A fix that removes a symptom while preserving the failure condition is not complete. Silent approval without verification is not review.
+
+## Self-checks
+
+- Does every change request cite a specific failure mode?
+- Does this fix actually resolve the failure condition?
+- Am I verifying behavior, not just looking at code?
+- Is this "LGTM" backed by actual verification?
+
+## Install
 
 ```bash
-kdna install github:aikdna/kdna-code_review
+kdna install @aikdna/code_review
 kdna validate .
 ```
 
 ## Files
 
-| File | Purpose |
-|------|---------|
-| KDNA_Core.json | Axioms, ontology, frameworks, core causal structure, stances |
-| KDNA_Patterns.json | Terminology, banned terms, misunderstandings, self-checks |
-| KDNA_Scenarios.json | Scenario signals that should shift strategy |
-| KDNA_Cases.json | Concrete cases showing structure rather than scripts |
-| KDNA_Reasoning.json | Reasoning chains: conclusion → logic → so_what |
-| KDNA_Evolution.json | Capability stages, measurable indicators, growth paths |
-| kdna.json | Domain manifest |
-| evals/ | Evaluation cases (quality: untested) |
+- `KDNA_Core.json` — Axioms, ontology, frameworks, causal structure, stances
+- `KDNA_Patterns.json` — Terminology, banned terms, misunderstandings, self-checks
+- `KDNA_Scenarios.json` — Scenario signals that shift strategy
+- `KDNA_Cases.json` — Concrete cases showing judgment structure
+- `KDNA_Reasoning.json` — Reasoning chains: conclusion → logic → action
+- `KDNA_Evolution.json` — Capability stages, measurable indicators, growth paths
+- `evals/` — Evaluation cases (quality: untested)
+- `kdna.json` — Domain manifest
 
 ## License
 
