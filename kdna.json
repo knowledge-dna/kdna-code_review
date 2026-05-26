@@ -1,5 +1,5 @@
 {
-  "kdna_spec": "1.0",
+  "kdna_spec": "1.0-rc",
   "name": "@aikdna/code_review",
   "version": "0.7.5",
   "language": "en",
@@ -20,32 +20,18 @@
     "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEABYTSKqskFWFgPEykI648/YlhENQJkIZ6bQ6HcznYzKc=\n-----END PUBLIC KEY-----\n"
   },
   "license": {
-    "type": "CC-BY-4.0",
-    "commercial": false,
-    "allow_agent_use": true,
-    "allow_redistribution": true,
-    "allow_training": true
+    "type": "CC-BY-4.0"
   },
-  "status": "stable",
-  "domain_field": [
-    "software-engineering"
-  ],
-  "judgment_patterns": [
-    "quality-assessment"
-  ],
+  "status": "experimental",
   "file_count": 6,
-  "files": [
-    "KDNA_Core.json",
-    "KDNA_Patterns.json"
-  ],
   "judgment_version": "2026.05",
   "signature": "ed25519:615ba5f3dfc2d0c2bf8006a8a40568af60d0e2d8724b6487c60230d96fc91e70f2fea613b1636f6acf1f9c719d3c849a0f63a0feb54c7134269ef3df1bb0490f",
-  "quality_badge": "untested",
-  "spec_version": "1.0-rc",
+  "quality_badge": "tested",
   "languages": [
     "en",
     "zh-CN"
   ],
   "default_language": "en",
-  "i18n_level": "L2"
+  "i18n_level": "L2",
+  "risk_level": "R1"
 }
