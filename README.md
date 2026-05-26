@@ -46,7 +46,7 @@ Every review comment that requests a change must cite a specific failure mode. A
 
 ```bash
 kdna install @aikdna/code_review
-kdna validate .
+kdna dev validate .
 ```
 
 ## Files
