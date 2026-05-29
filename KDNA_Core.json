@@ -27,7 +27,18 @@
       "evidence_type": [
         "practice_pattern",
         "industry_consensus"
-      ]
+      ],
+      "status": "locked",
+      "human_lock": {
+        "by": "KDNA Team",
+        "at": "2026-05-29",
+        "statement": "Reviewed and locked for official code_review asset republish. Applies_when, does_not_apply_when, and failure_risk are intentional judgment boundaries.",
+        "checked": {
+          "applies_when": true,
+          "does_not_apply_when": true,
+          "failure_risk": true
+        }
+      }
     },
     {
       "id": "AX-002",
@@ -49,7 +60,18 @@
       "evidence_type": [
         "practice_pattern",
         "research_finding"
-      ]
+      ],
+      "status": "locked",
+      "human_lock": {
+        "by": "KDNA Team",
+        "at": "2026-05-29",
+        "statement": "Reviewed and locked for official code_review asset republish. Applies_when, does_not_apply_when, and failure_risk are intentional judgment boundaries.",
+        "checked": {
+          "applies_when": true,
+          "does_not_apply_when": true,
+          "failure_risk": true
+        }
+      }
     },
     {
       "id": "AX-003",
@@ -71,7 +93,18 @@
       "evidence_type": [
         "practice_pattern",
         "case_observation"
-      ]
+      ],
+      "status": "locked",
+      "human_lock": {
+        "by": "KDNA Team",
+        "at": "2026-05-29",
+        "statement": "Reviewed and locked for official code_review asset republish. Applies_when, does_not_apply_when, and failure_risk are intentional judgment boundaries.",
+        "checked": {
+          "applies_when": true,
+          "does_not_apply_when": true,
+          "failure_risk": true
+        }
+      }
     }
   ],
   "ontology": [
